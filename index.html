@@ -228,6 +228,65 @@
     <footer>
         <p>&copy; 2026 Mubeen166. Made with ❤️ and <span>3D CSS</span>.</p>
     </footer>
+<!-- Firebase & Google Sign-In Code -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+  // Aapki config details
+  const firebaseConfig = {
+    apiKey: "AIzaSyAAntLIbPwxytJlSWS2sTRG3e_Qj89GatI",
+    authDomain: "authentication-54068.firebaseapp.com",
+    projectId: "authentication-54068",
+    storageBucket: "authentication-54068.firebasestorage.app",
+    messagingSenderId: "363023441184",
+    appId: "1:363023441184:web:5039aa8c86df97ae7c4b45",
+    measurementId: "G-F3P7NNH0E1"
+  };
+
+  // Firebase Init
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const userInfo = document.getElementById('userInfo');
+
+  // Google Login Action
+  loginBtn.addEventListener('click', () => {
+    signInWithPopup(auth, provider)
+      .catch((error) => console.error("Login Error:", error));
+  });
+
+  // Logout Action
+  logoutBtn.addEventListener('click', () => {
+    signOut(auth);
+  });
+
+  // Check User Status (Auto Login State)
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      loginBtn.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+      userInfo.innerHTML = `Welcome, <b>${user.displayName}</b> (${user.email})`;
+    } else {
+      loginBtn.style.display = "inline-block";
+      logoutBtn.style.display = "none";
+      userInfo.innerHTML = "Aap logged in nahi hain.";
+    }
+  });
+</script>
+
+<!-- UI Elements (Apni website mein jahan chahein wahan paste karein) -->
+<div style="text-align: center; margin: 20px;">
+  <button id="loginBtn" style="padding: 10px 20px; background-color: #4285F4; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Sign in with Google
+  </button>
+  <button id="logoutBtn" style="padding: 10px 20px; background-color: #d9534f; color: white; border: none; border-radius: 5px; cursor: pointer; display: none;">
+    Logout
+  </button>
+  <p id="userInfo" style="margin-top: 10px; color: #8b949e;"></p>
+</div>
 </body>
 </html>
