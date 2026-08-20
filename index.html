@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mubeen166 | 3D Creative Hub</title>
+    <style>
+        /* A to Z Styling - Complete Config */
+        :root {
+            --bg-color: #0d1117;
+            --accent-color: #58a6ff;
+            --secondary-color: #161b22;
+            --text-main: #f0f6fc;
+            --text-sub: #8b949e;
+            --shadow-3d: 0 10px 20px rgba(88, 166, 255, 0.2);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            margin: 0; padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex; flex-direction: column; align-items: center;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+
+        /* Subtle Background Mesh Lines - 3D depth */
+        body::before {
+            content: '';
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(139, 148, 158, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 148, 158, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            transform: translateZ(-200px);
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(180deg, var(--secondary-color) 0%, transparent 100%);
+            border-bottom: 1px solid rgba(139, 148, 158, 0.2);
+            position: relative;
+        }
+
+        /* Glow effect under title */
+        header h1 {
+            font-size: 3.5rem; margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--accent-color);
+            text-shadow: 0 0 15px var(--accent-color);
+        }
+
+        header p { font-size: 1.2rem; color: var(--text-sub); margin-top: 10px; }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding-bottom: 100px;
+        }
+
+        .section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* 3D Card Styling */
+        .card {
+            background-color: var(--secondary-color);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(139, 148, 158, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Subtle Glow and Lift on Hover */
+        .card:hover {
+            transform: rotateY(-2deg) rotateX(1deg) translateY(-5px);
+            box-shadow: var(--shadow-3d);
+            border-color: rgba(88, 166, 255, 0.4);
+        }
+
+        .card h2 { color: var(--text-main); margin-top: 0; border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 5px;}
+        .card p { color: var(--text-sub); line-height: 1.6; }
+
+        /* Mouse Tracker Box (Pure CSS 3D Depth) */
+        .mouse-depth {
+            position: relative;
+            transform-style: preserve-3d;
+            transform: translateZ(50px);
+            opacity: 0.8;
+        }
+
+        /* Profile Container - Swap photo here */
+        .profile-container {
+            display: flex; justify-content: center; align-items: center;
+            margin-bottom: 50px;
+            transform-style: preserve-3d;
+        }
+
+        .profile-pic {
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background-color: #21262d;
+            border: 4px solid var(--accent-color);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.5);
+            font-size: 4rem; color: #58a6ff;
+            text-transform: uppercase;
+            transform: translateZ(20px);
+        }
+
+        /* Skill bars */
+        .skill-bar {
+            width: 100%; height: 10px; background-color: rgba(139, 148, 158, 0.2);
+            border-radius: 5px; margin: 10px 0 20px 0; overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%; background-color: var(--accent-color);
+            border-radius: 5px; width: 0;
+            animation: skillLoad 1.5s ease forwards;
+        }
+
+        @keyframes skillLoad { to { width: 85%; } }
+
+        footer {
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: var(--text-sub);
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(139, 148, 158, 0.2);
+            position: fixed; bottom: 0;
+            transform: translateZ(100px);
+        }
+
+        footer p { margin: 0; }
+        footer span { color: var(--accent-color); font-weight: bold;}
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; letter-spacing: 3px;}
+            .section { grid-template-columns: 1fr;}
+            .container { width: 90%;}
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="mouse-depth">
+            <h1>Mubeen166</h1>
+            <p>Creative Digital Artist | Tech Explorer</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Profile Container -->
+        <div class="profile-container">
+            <div class="profile-pic">
+                <!-- Change image link here: <img src="your-photo.jpg" alt="Mubeen166"> -->
+                MB
+            </div>
+        </div>
+
+        <div class="section">
+            <!-- 3D Card: About -->
+            <div class="card">
+                <h2>Welcome</h2>
+                <p>Mera naam Mubeen hai aur yeh mera personalized 3D Portfolio Hub hai. Yahan main apne creative projects aur digital adventures share karta hoon.</p>
+                <div class="mouse-depth" style="transform: translateZ(30px); font-size: 3rem; color: #58a6ff;">🌌</div>
+            </div>
+
+            <!-- 3D Card: Skill & Tech -->
+            <div class="card">
+                <h2>Tech Skill</h2>
+                <div class="skill-group">
+                    <p>Web Development</p>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                    <p>Python Automation</p>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+                    <p>Digital Networking</p>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <!-- 3D Card: Contact -->
+            <div class="card" style="text-align: center;">
+                <h2>Let's Connect</h2>
+                <p>Website par kaam chal raha hai. Aap email par contact kar sakte hain.</p>
+                <p style="color: #f0f6fc; font-weight: bold; font-size: 1.1rem; border: 1px solid #58a6ff; padding: 10px; display: inline-block; border-radius: 5px;">contact@example.com</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mubeen166. Made with ❤️ and <span>3D CSS</span>.</p>
+    </footer>
+
+</body>
+</html>
