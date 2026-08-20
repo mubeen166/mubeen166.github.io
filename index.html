@@ -3,45 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>Muneeb Networking Solutions & Router Store</title>
+  <title>Pakistan Networking & Router Store</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     body { background-color: #0b132b; color: #f4f5f7; padding-bottom: 80px; }
     
-    /* Top Navigation Header */
-    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #1c2541; border-bottom: 2px solid #3a506b; sticky: top; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #1c2541; border-bottom: 2px solid #3a506b; position: sticky; top: 0; z-index: 100; }
     .logo { font-size: 1.3rem; font-weight: bold; color: #6fffe9; }
-    .auth-btn { padding: 9px 18px; background-color: #3a86ff; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-    .auth-btn:hover { background-color: #2563eb; }
+    .auth-btn { padding: 9px 18px; background-color: #3a86ff; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
     .logout-btn { background-color: #e63946; display: none; }
 
     .container { max-width: 1100px; margin: auto; padding: 20px; }
 
-    /* Rules & Welcome Screen */
     .hero { text-align: center; padding: 35px 20px; background: linear-gradient(135deg, #1c2541, #0b132b); border-radius: 12px; margin-bottom: 25px; border: 1px solid #3a506b; }
     .rules-box { background: #1c2541; padding: 22px; border-radius: 10px; border-left: 5px solid #6fffe9; margin-top: 15px; }
     .rules-box ul { margin-left: 20px; margin-top: 10px; line-height: 1.7; color: #cbd5e1; }
 
-    /* Protected Product & Order Section */
     #protected-content { display: none; }
 
     /* Router Catalog Grid */
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 20px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-top: 20px; }
     .product-card { background: #1c2541; border-radius: 10px; padding: 15px; text-align: center; border: 1px solid #3a506b; display: flex; flex-direction: column; justify-content: space-between; }
     .product-card img { width: 100%; height: 160px; object-fit: contain; background: #ffffff; border-radius: 8px; padding: 5px; }
-    .product-title { font-size: 1.1rem; margin-top: 12px; color: #ffffff; }
-    .price { font-size: 1.25rem; color: #52b788; font-weight: bold; margin: 8px 0; }
-    .specs { font-size: 0.82rem; color: #94a3b8; margin-bottom: 12px; }
+    .product-title { font-size: 1rem; margin-top: 12px; color: #ffffff; font-weight: bold; }
+    .price { font-size: 1.2rem; color: #52b788; font-weight: bold; margin: 8px 0; }
+    .specs { font-size: 0.8rem; color: #94a3b8; margin-bottom: 12px; }
 
-    /* Order Form Styling */
     .order-form { background: #1c2541; padding: 25px; border-radius: 10px; margin-top: 35px; border: 1px solid #3a506b; }
     .form-group { margin-bottom: 15px; }
     .form-group label { display: block; margin-bottom: 6px; font-size: 0.9rem; color: #cbd5e1; }
     .form-group input, .form-group select { width: 100%; padding: 11px; border-radius: 6px; border: 1px solid #3a506b; background: #0b132b; color: white; outline: none; }
     .security-note { font-size: 0.82rem; color: #a7f3d0; margin-top: 15px; background: rgba(16, 185, 129, 0.1); padding: 12px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.3); }
 
-    /* Floating Support Buttons Bar */
     .support-bar { position: fixed; bottom: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; }
     .support-btn { padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); font-size: 0.9rem; }
     .wa-btn { background-color: #25d366; }
@@ -50,7 +43,6 @@
 </head>
 <body>
 
-  <!-- Top Header Navigation -->
   <header>
     <div class="logo">Muneeb Router Store</div>
     <div>
@@ -61,116 +53,172 @@
 
   <div class="container">
 
-    <!-- GUEST SECTION (Shown Before Login) -->
+    <!-- GUEST SECTION -->
     <div id="guest-section">
       <div class="hero">
-        <h1>Tested Networking & Fiber Routers</h1>
-        <p style="margin-top: 10px; color: #94a3b8;">High-speed fiber ONTs, Dual-Band Wi-Fi routers, and MikroTik Bandwidth Controllers.</p>
+        <h1>Pakistan's Complete Hardware & Fiber Router Catalog</h1>
+        <p style="margin-top: 10px; color: #94a3b8;">Original Fiber ONTs, TP-Link, Mercusys, Tenda, and MikroTik Routers.</p>
       </div>
 
       <div class="rules-box">
-        <h3>Store Rules & Buyer Protection Guidelines</h3>
+        <h3>Rules & Buyer Guidelines</h3>
         <ul>
-          <li><b>Authentication Required:</b> Login with your Google Account to view prices and place orders.</li>
-          <li><b>Pre-tested Hardware:</b> Every device is tested for Wi-Fi stability, WAN response, and throughput before delivery.</li>
-          <li><b>Transparent Shipping:</b> Delivery charges are calculated based on destination city.</li>
-          <li><b>Secure Direct Support:</b> Dedicated WhatsApp and Email support available 24/7 for logged-in users.</li>
+          <li><b>Google Login Required:</b> Prices, image catalog, and order submission unlock after sign-in.</li>
+          <li><b>Tested Units:</b> All hardware is bench-tested before shipping.</li>
+          <li><b>Delivery Charges:</b> Dynamic rates applied according to recipient location.</li>
         </ul>
       </div>
     </div>
 
-    <!-- PROTECTED SECTION (Unlocked After Login) -->
+    <!-- PROTECTED SECTION -->
     <div id="protected-content">
-      <h2 style="margin-bottom: 15px; color: #6fffe9;">Available Routers & Fiber Devices</h2>
+      <h2 style="margin-bottom: 15px; color: #6fffe9;">Catalog: Routers & ONTs</h2>
       
-      <!-- Router Products Grid -->
       <div class="product-grid">
-        
+
+        <!-- 1. Huawei EG8145V5 -->
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300&auto=format&fit=crop&q=60" alt="Dual Band Fiber ONU">
-          <div class="product-title">XPON Dual-Band Fiber ONU Router</div>
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300" alt="Huawei EG8145V5">
+          <div class="product-title">Huawei EG8145V5 Dual-Band ONT</div>
           <div class="price">PKR 4,800</div>
-          <div class="specs">2.4GHz + 5GHz | 4 Antennas | Fiber Optical Slot</div>
+          <div class="specs">Dual-Band 2.4GHz / 5GHz | Gigabit Ports | Fiber APC/UPC</div>
         </div>
 
+        <!-- 2. ZTE F670L -->
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=300&auto=format&fit=crop&q=60" alt="Gigabit Wireless Router">
-          <div class="product-title">Gigabit AC1200 Wireless Router</div>
-          <div class="price">PKR 5,500</div>
-          <div class="specs">1000 Mbps WAN/LAN | Parent Control & Guest Network</div>
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300" alt="ZTE F670L">
+          <div class="product-title">ZTE F670L Dual-Band Fiber ONU</div>
+          <div class="price">PKR 4,600</div>
+          <div class="specs">XPON/GPON | 4 GE Ports + Wi-Fi | High Gain Antennas</div>
         </div>
 
+        <!-- 3. TP-Link Archer C6 -->
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=300&auto=format&fit=crop&q=60" alt="MikroTik RouterBoard">
-          <div class="product-title">MikroTik RouterBoard hEX / hAP</div>
-          <div class="price">PKR 9,200</div>
-          <div class="specs">Bandwidth Management | Queueing Rules | Hotspot Config</div>
+          <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=300" alt="TP-Link Archer C6">
+          <div class="product-title">TP-Link Archer C6 AC1200</div>
+          <div class="price">PKR 6,800</div>
+          <div class="specs">MU-MIMO Gigabit Router | 4 External Antennas</div>
         </div>
 
+        <!-- 4. TP-Link WR840N -->
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=300&auto=format&fit=crop&q=60" alt="High Power Extender Router">
-          <div class="product-title">High-Power Range Extender Router</div>
-          <div class="price">PKR 3,900</div>
-          <div class="specs">Wall-penetrating signal | Repeater & AP Mode</div>
+          <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=300" alt="TP-Link WR840N">
+          <div class="product-title">TP-Link TL-WR840N 300Mbps</div>
+          <div class="price">PKR 3,200</div>
+          <div class="specs">Single-Band 2.4GHz | 2 Antennas | AP/Range Extender Mode</div>
+        </div>
+
+        <!-- 5. Tenda F3 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=300" alt="Tenda F3">
+          <div class="product-title">Tenda F3 300Mbps Wireless Router</div>
+          <div class="price">PKR 2,950</div>
+          <div class="specs">3x 5dBi High Gain Antennas | Easy Setup</div>
+        </div>
+
+        <!-- 6. Tenda AC10 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=300" alt="Tenda AC10">
+          <div class="product-title">Tenda AC10 AC1200 Smart Router</div>
+          <div class="price">PKR 6,200</div>
+          <div class="specs">Full Gigabit WAN/LAN Ports | 1 GHz CPU</div>
+        </div>
+
+        <!-- 7. Mercusys AC12 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300" alt="Mercusys AC12">
+          <div class="product-title">Mercusys AC12 Dual-Band Router</div>
+          <div class="price">PKR 4,300</div>
+          <div class="specs">1200 Mbps Wi-Fi Speed | 4 High-Gain Antennas</div>
+        </div>
+
+        <!-- 8. MikroTik hEX (RB750Gr3) -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=300" alt="MikroTik hEX">
+          <div class="product-title">MikroTik hEX (RB750Gr3)</div>
+          <div class="price">PKR 13,500</div>
+          <div class="specs">5x Gigabit Ethernet | Dual Core 880MHz CPU | RouterOS</div>
+        </div>
+
+        <!-- 9. MikroTik hAP ac2 -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=300" alt="MikroTik hAP ac2">
+          <div class="product-title">MikroTik hAP ac2 Dual-Band</div>
+          <div class="price">PKR 18,200</div>
+          <div class="specs">Concurrent Dual-Band | 5x Gigabit Ports | IPsec Hardware</div>
+        </div>
+
+        <!-- 10. Netgear N300 / AC Router -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=300" alt="Netgear Router">
+          <div class="product-title">Netgear N300 / AC Import Router</div>
+          <div class="price">PKR 3,500</div>
+          <div class="specs">Heavy Duty Imported Stock | High Signal Stability</div>
         </div>
 
       </div>
 
-      <!-- Secure Order Form Section -->
+      <!-- Order Form -->
       <div class="order-form">
-        <h3 style="color: #6fffe9;">Place Your Hardware Order</h3>
+        <h3 style="color: #6fffe9;">Order Hardware</h3>
         <form id="routerOrderForm" style="margin-top: 15px;">
           
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" id="custName" required placeholder="Enter full name" maxlength="60">
+            <input type="text" id="custName" required placeholder="Enter your full name" maxlength="60">
           </div>
 
           <div class="form-group">
-            <label>Active Contact / WhatsApp Number</label>
+            <label>WhatsApp / Phone Number</label>
             <input type="tel" id="custPhone" required placeholder="03290622424" pattern="[0-9]{11}">
           </div>
 
           <div class="form-group">
-            <label>Select Hardware Device</label>
+            <label>Select Router Model</label>
             <select id="deviceType">
-              <option value="XPON Dual-Band Fiber ONU (PKR 4800)">XPON Dual-Band Fiber ONU - PKR 4,800</option>
-              <option value="Gigabit AC1200 Wireless Router (PKR 5500)">Gigabit AC1200 Wireless Router - PKR 5,500</option>
-              <option value="MikroTik RouterBoard (PKR 9200)">MikroTik RouterBoard - PKR 9,200</option>
-              <option value="High-Power Range Extender Router (PKR 3900)">High-Power Range Extender Router - PKR 3,900</option>
+              <option value="Huawei EG8145V5 Dual-Band ONT (PKR 4800)">Huawei EG8145V5 Dual-Band ONT - PKR 4,800</option>
+              <option value="ZTE F670L Dual-Band Fiber ONU (PKR 4600)">ZTE F670L Dual-Band Fiber ONU - PKR 4,600</option>
+              <option value="TP-Link Archer C6 AC1200 (PKR 6800)">TP-Link Archer C6 AC1200 - PKR 6,800</option>
+              <option value="TP-Link TL-WR840N (PKR 3200)">TP-Link TL-WR840N 300Mbps - PKR 3,200</option>
+              <option value="Tenda F3 300Mbps (PKR 2950)">Tenda F3 300Mbps - PKR 2,950</option>
+              <option value="Tenda AC10 AC1200 (PKR 6200)">Tenda AC10 AC1200 - PKR 6,200</option>
+              <option value="Mercusys AC12 Dual-Band (PKR 4300)">Mercusys AC12 Dual-Band - PKR 4,300</option>
+              <option value="MikroTik hEX RB750Gr3 (PKR 13500)">MikroTik hEX (RB750Gr3) - PKR 13,500</option>
+              <option value="MikroTik hAP ac2 (PKR 18200)">MikroTik hAP ac2 Dual-Band - PKR 18,200</option>
+              <option value="Netgear Import Router (PKR 3500)">Netgear Import Router - PKR 3,500</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label>Delivery Region (Calculates Delivery Charges)</label>
+            <label>Select Region / City</label>
             <select id="deliveryRegion" onchange="updateDeliveryCharge()">
-              <option value="200">Local / Nearby Area (PKR 200)</option>
+              <option value="200">Local Area Delivery (PKR 200)</option>
               <option value="350">Major Cities (Lahore, Rawalpindi, Karachi, Multan) (PKR 350)</option>
-              <option value="500">Other Districts / Remote Areas (PKR 500)</option>
+              <option value="500">Remote Areas / Other Districts (PKR 500)</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label>Calculated Delivery Charges</label>
+            <label>Delivery Charges</label>
             <input type="text" id="deliveryDisplay" value="PKR 200 (Cash on Delivery)" readonly style="color: #52b788; font-weight: bold;">
           </div>
 
           <div class="form-group">
-            <label>Complete Delivery Address</label>
+            <label>Complete Shipping Address</label>
             <input type="text" id="custAddress" required placeholder="House/Shop No, Street, City" maxlength="150">
           </div>
 
           <div class="security-note">
-            <b>🔒 Security & Privacy Encrypted:</b> Your shipping information is sanitized and protected. Orders are confirmed over phone or WhatsApp prior to dispatch.
+            <b>🔒 Encrypted Data:</b> Information is sanitized for fraud prevention. Orders are confirmed over phone or WhatsApp prior to dispatch.
           </div>
 
           <button type="submit" class="auth-btn" style="width: 100%; margin-top: 15px; padding: 12px; background: #25d366; color: black; font-size: 1rem;">
-            Submit Order via WhatsApp / Direct
+            Confirm Order via WhatsApp
           </button>
         </form>
       </div>
 
-      <!-- Floating Support Action Buttons -->
+      <!-- Support Bar -->
       <div class="support-bar">
         <a href="https://wa.me/923290622424" target="_blank" class="support-btn wa-btn">
           💬 Support WhatsApp
@@ -184,7 +232,6 @@
 
   </div>
 
-  <!-- Firebase Security & Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
@@ -208,15 +255,12 @@
     const guestSection = document.getElementById('guest-section');
     const protectedContent = document.getElementById('protected-content');
 
-    // Sign In Event
     loginBtn.addEventListener('click', () => {
       signInWithPopup(auth, provider).catch((error) => alert("Authentication Error: " + error.message));
     });
 
-    // Sign Out Event
     logoutBtn.addEventListener('click', () => signOut(auth));
 
-    // Auth State Monitor
     onAuthStateChanged(auth, (user) => {
       if (user) {
         loginBtn.style.display = "none";
@@ -231,18 +275,15 @@
       }
     });
 
-    // Sanitize Function against Script Injections
     function sanitizeInput(str) {
       return str.replace(/[^\w\s@.,-]/gi, '');
     }
 
-    // Dynamic Delivery Charges Display
     window.updateDeliveryCharge = function() {
       const charge = document.getElementById('deliveryRegion').value;
       document.getElementById('deliveryDisplay').value = `PKR ${charge} (Cash on Delivery)`;
     };
 
-    // Form Order Submission Logic
     document.getElementById('routerOrderForm').addEventListener('submit', (e) => {
       e.preventDefault();
       
@@ -254,7 +295,6 @@
 
       const orderMsg = `*New Router Order Details*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Device:* ${device}%0A*Delivery Charge:* ${delivery}%0A*Address:* ${address}`;
       
-      // Directs to support WhatsApp with filled order details
       window.open(`https://wa.me/923290622424?text=${orderMsg}`, '_blank');
     });
   </script>
